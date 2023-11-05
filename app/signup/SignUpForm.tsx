@@ -22,6 +22,7 @@ export const SignUpForm = () => {
     setError,
     formState: { errors },
   } = useForm<SignUpFormDataType>({
+    mode: 'onChange',
     criteriaMode: 'all',
     resolver: zodResolver(signupSchema),
   });
@@ -56,18 +57,7 @@ export const SignUpForm = () => {
       <LayoutBox direction="column" gap="16px">
         <LayoutBox direction="column" gap="8px">
           <Label htmlFor="name" text="名前" required>
-            <Input
-              id="name"
-              type="name"
-              placeholder="名前を入力"
-              {...register('name', {
-                required: '入力必須の項目です。',
-                maxLength: {
-                  value: 50,
-                  message: '50文字以内で入力してください。',
-                },
-              })}
-            />
+            <Input id="name" type="name" placeholder="名前を入力" {...register('name')} />
           </Label>
           <Error name="name" errors={errors} />
           <Label htmlFor="email" text="メールアドレス" required>
@@ -75,13 +65,7 @@ export const SignUpForm = () => {
               id="email"
               type="email"
               placeholder="メールアドレスを入力"
-              {...register('email', {
-                required: '入力必須の項目です。',
-                // pattern: {
-                //   value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i,
-                //   message: 'メールアドレスの形式で入力してください。',
-                // },
-              })}
+              {...register('email')}
             />
           </Label>
           <Error name="email" errors={errors} />
@@ -90,14 +74,7 @@ export const SignUpForm = () => {
               id="password"
               type="password"
               placeholder="パスワードを入力"
-              {...register('password', {
-                required: '入力必須の項目です。',
-                // pattern: {
-                //   value: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,50}$/i,
-                //   message:
-                //     '半角英数字をそれぞれ1文字以上含む8文字以上50文字以内で入力してください。',
-                // },
-              })}
+              {...register('password')}
             />
           </Label>
           <Error name="password" errors={errors} />

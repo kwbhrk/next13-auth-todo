@@ -21,6 +21,7 @@ export const LoginForm = () => {
     setError,
     formState: { errors },
   } = useForm<LoginFormDataType>({
+    mode: 'onChange',
     criteriaMode: 'all',
     resolver: zodResolver(loginSchema),
   });
