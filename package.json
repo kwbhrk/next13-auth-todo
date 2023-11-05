@@ -38,8 +38,5 @@
     "prettier": "^3.0.3",
     "prisma": "^5.4.2",
     "typescript": "^5"
-  },
-  "lint-staged": {
-    "app/**/*.{js,jsx,ts,tsx,json}'": "yarn lint && yarn format"
   }
 }
