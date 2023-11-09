@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
     if (signupUser) {
       return NextResponse.json(
-        { message: 'The email address is already in use by another account.' },
+        { message: 'このメールアドレスは現在登録できません。' },
         { status: 422 }
       );
     }
@@ -32,7 +32,10 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json({ message: 'success', user: createdUser }, { status: 201 });
+    return NextResponse.json(
+      { message: 'ユーザー登録が完了しました。', user: createdUser },
+      { status: 201 }
+    );
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     return NextResponse.json(
