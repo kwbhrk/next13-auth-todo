@@ -18,6 +18,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <AuthProvider>
           <Header />
           {children}
+          <div id="modal"></div>
         </AuthProvider>
       </body>
     </html>
