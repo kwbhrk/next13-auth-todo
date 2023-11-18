@@ -35,7 +35,7 @@ export const SignUpForm = () => {
     });
 
     if (response?.ok) {
-      // 登録後、そのまま登録情報でログインし、Todo一覧画面へ遷移する
+      // 登録後、そのまま登録情報でログインし、タスク一覧画面へ遷移する
       await signIn('credentials', {
         redirect: false,
         email,

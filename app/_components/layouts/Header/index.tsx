@@ -15,7 +15,7 @@ const Header = async () => {
     <header className={style.headerClass}>
       <h1>
         <Link href="/" className={style.headerLogoClass}>
-          Todo管理
+          タスク管理
         </Link>
       </h1>
       <div className={style.headerButtonGroupClass}>{session ? <LogoutMenu /> : <LoginMenu />}</div>

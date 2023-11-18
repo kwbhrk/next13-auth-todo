@@ -7,8 +7,8 @@ import AuthProvider from '@/app/_components/provider/AuthProvider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Todo',
-  description: 'Todo管理アプリケーション',
+  title: 'タスク',
+  description: 'タスク管理アプリケーション',
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
