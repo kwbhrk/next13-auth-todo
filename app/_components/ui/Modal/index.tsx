@@ -14,7 +14,7 @@ export const Modal = ({ isOpen, closeModal, children }: ModalProps) => {
 
   useEffect(() => setMounted(true), []);
 
-  const modalRoot = document.querySelector('#modal');
+  const modalRoot = typeof document !== 'undefined' && document?.querySelector('#modal');
 
   if (!modalRoot) return null;
 
