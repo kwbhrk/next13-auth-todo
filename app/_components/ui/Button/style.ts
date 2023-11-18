@@ -9,8 +9,8 @@ export const ButtonClass = ({
   width,
   color = '#ffffff',
   backgroundColor = '#18181b',
-}: ButtonProps) => {
-  return css({
+}: ButtonProps) =>
+  css({
     borderRadius: '4px',
     cursor: 'pointer',
     color,
@@ -21,4 +21,3 @@ export const ButtonClass = ({
     border,
     backgroundColor,
   });
-};

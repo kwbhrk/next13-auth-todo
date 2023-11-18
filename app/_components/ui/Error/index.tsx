@@ -7,17 +7,15 @@ type ErrorTextProps = {
   errors: FieldErrors;
 };
 
-export const Error = ({ name = '', errors }: ErrorTextProps) => {
-  return (
-    <ErrorMessage
-      errors={errors}
-      name={name}
-      render={({ messages }) =>
-        messages &&
-        Object.entries(messages).map(([type, message]) => (
-          <ErrorText key={type} message={String(message)} />
-        ))
-      }
-    />
-  );
-};
+export const Error = ({ name = '', errors }: ErrorTextProps) => (
+  <ErrorMessage
+    errors={errors}
+    name={name}
+    render={({ messages }) =>
+      messages &&
+      Object.entries(messages).map(([type, message]) => (
+        <ErrorText key={type} message={String(message)} />
+      ))
+    }
+  />
+);

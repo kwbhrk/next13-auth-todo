@@ -7,12 +7,10 @@ export const Label = ({
   fontSize = '14px',
   required = false,
   children,
-}: LabelProps) => {
-  return (
-    <label htmlFor={htmlFor} className={style.labelClass}>
-      <span className={style.labelTextClass(fontSize)}>{text}</span>
-      {required && <span className={style.labelRequiredClass}>*</span>}
-      {children}
-    </label>
-  );
-};
+}: LabelProps) => (
+  <label htmlFor={htmlFor} className={style.labelClass}>
+    <span className={style.labelTextClass(fontSize)}>{text}</span>
+    {required && <span className={style.labelRequiredClass}>*</span>}
+    {children}
+  </label>
+);
