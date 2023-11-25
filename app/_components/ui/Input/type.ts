@@ -1,1 +1,1 @@
-export type InputProps = React.JSX.IntrinsicElements['input'];
+export type InputProps = { fullWidth?: boolean } & React.JSX.IntrinsicElements['input'];

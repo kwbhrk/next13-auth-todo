@@ -50,6 +50,7 @@ export const LoginForm = () => {
       });
   });
 
+  // TODO: h2タグをHeadingコンポーネントに変えてh2,h3,h4と変えられるようにする
   return (
     <FormCard onSubmit={handleSubmitLogin}>
       <h2 className={css({ fontWeight: 'bold' })}>ログイン</h2>
@@ -60,6 +61,7 @@ export const LoginForm = () => {
               id="email"
               type="email"
               placeholder="メールアドレスを入力"
+              fullWidth
               {...register('email')}
             />
           </Label>
@@ -69,6 +71,7 @@ export const LoginForm = () => {
               id="password"
               type="password"
               placeholder="パスワードを入力"
+              fullWidth
               {...register('password')}
             />
           </Label>

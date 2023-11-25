@@ -42,6 +42,7 @@ export const SignUpForm = () => {
         password,
       });
       router.push('/');
+      router.refresh();
       return;
     }
 
@@ -57,7 +58,7 @@ export const SignUpForm = () => {
       <LayoutBox direction="column" gap="16px">
         <LayoutBox direction="column" gap="8px">
           <Label htmlFor="name" text="名前" required>
-            <Input id="name" type="name" placeholder="名前を入力" {...register('name')} />
+            <Input id="name" type="name" placeholder="名前を入力" fullWidth {...register('name')} />
           </Label>
           <Error name="name" errors={errors} />
           <Label htmlFor="email" text="メールアドレス" required>
@@ -65,6 +66,7 @@ export const SignUpForm = () => {
               id="email"
               type="email"
               placeholder="メールアドレスを入力"
+              fullWidth
               {...register('email')}
             />
           </Label>
@@ -74,6 +76,7 @@ export const SignUpForm = () => {
               id="password"
               type="password"
               placeholder="パスワードを入力"
+              fullWidth
               {...register('password')}
             />
           </Label>
