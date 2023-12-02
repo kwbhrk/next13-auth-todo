@@ -2,6 +2,7 @@ import { css } from '@/styled-system/css';
 import { LayoutBoxProps } from './type';
 
 export const LayoutBoxClass = ({
+  width = '100%',
   direction = 'row',
   gap = '2x',
   rowGap = '2x',
@@ -12,7 +13,7 @@ export const LayoutBoxClass = ({
 }: LayoutBoxProps) =>
   css({
     display: 'flex',
-    width: '100%',
+    width,
     gap,
     rowGap,
     direction,
