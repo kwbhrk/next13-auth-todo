@@ -50,6 +50,20 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  callbacks: {
+    // セッション情報にユーザーIDを追加
+    async session({ session }) {
+      const authUser = await prisma?.user.findUnique({
+        where: { email: session.user.email },
+      });
+
+      if (session?.user && authUser?.id) {
+        session.user.id = authUser.id;
+      }
+
+      return session;
+    },
+  },
   pages: {
     signIn: '/login',
   },
