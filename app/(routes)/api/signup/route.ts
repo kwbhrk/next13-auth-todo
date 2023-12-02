@@ -4,11 +4,10 @@ import prisma from '@/app/_libs/prisma';
 
 export async function POST(req: Request) {
   if (req.method !== 'POST') {
-    return NextResponse.json({ message: 'Method Not Allowed' }, { status: 405 });
+    return NextResponse.json({ message: '許可されていないメソッドです。' }, { status: 405 });
   }
 
   // TODO: バックエンド側でもzodでバリデーションチェックを行う
-
   try {
     const { name, email, password } = await req.json();
 
