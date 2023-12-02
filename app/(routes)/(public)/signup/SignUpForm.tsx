@@ -28,7 +28,7 @@ export const SignUpForm = () => {
   });
 
   const handleSubmitLogin = handleSubmit(async ({ name, email, password }) => {
-    const response = await fetch('http://localhost:3000/api/signup', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password }),
@@ -46,9 +46,10 @@ export const SignUpForm = () => {
       return;
     }
 
+    const error = await response.json();
     setError('root.server', {
       type: 'server',
-      message: 'エラーが起きました。再度お試しください。',
+      message: error.message,
     });
   });
 
