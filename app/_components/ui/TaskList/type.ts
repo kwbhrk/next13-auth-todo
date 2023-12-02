@@ -1,1 +1,4 @@
-export type TaskListProps = { title: string } & React.JSX.IntrinsicElements['div'];
+export type TaskListProps = {
+  id: number;
+  content: string;
+};
