@@ -51,14 +51,14 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   password      String
-  todos         Todo[]
+  todos         Task[]
   accounts      Account[]
   sessions      Session[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
 
-model Todo {
+model Task {
   id        Int      @id @default(autoincrement())
   content   String
   user      User     @relation(fields: [userId], references: [id])
