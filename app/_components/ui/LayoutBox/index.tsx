@@ -1,6 +1,6 @@
 import { LayoutBoxProps } from './type';
 import { LayoutBoxClass } from './style';
 
-export const LayoutBox = ({ children, ...otherProps }: LayoutBoxProps) => (
-  <div className={LayoutBoxClass(otherProps)}>{children}</div>
+export const LayoutBox = ({ children, ...restProps }: LayoutBoxProps) => (
+  <div className={LayoutBoxClass(restProps)}>{children}</div>
 );
