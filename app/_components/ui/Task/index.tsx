@@ -12,7 +12,7 @@ import { taskSchema } from '@/app/_schema/task';
 import { TaskType } from '@/app/(routes)/(private)/(home)/type';
 import { useRouter } from 'next/navigation';
 
-export const TaskList = ({ id, content }: TaskListProps) => {
+export const Task = ({ id, content, isCheckedTask, onChange }: TaskListProps) => {
   const [isEdit, setIsEdit] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -60,8 +60,28 @@ export const TaskList = ({ id, content }: TaskListProps) => {
     });
   });
 
-  const handleClickDeleteTask = () => {
-    confirm(`タスク「${content}」を削除しますか？`);
+  const handleClickDeleteTask = async () => {
+    const result = confirm(`タスク「${content}」を削除しますか？`);
+    if (!result) return;
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/task`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ids: [id] }),
+    });
+
+    if (response?.ok) {
+      router.push('/');
+      router.refresh();
+      return;
+    }
+
+    const error = await response.json();
+    if (confirm(error.message) && response.status === 401) {
+      router.push('/login');
+      return;
+    }
+    alert(error.message);
   };
 
   const handleClickEnter: EventType['onKeyDown'] = async (e) => {
@@ -78,7 +98,7 @@ export const TaskList = ({ id, content }: TaskListProps) => {
     <div className={TaskListClass}>
       <LayoutBox align="center" gap="8px" justify="space-between">
         <LayoutBox align="center" gap="8px" width="auto">
-          <Input type="checkbox" />
+          <Input type="checkbox" checked={isCheckedTask} onChange={() => onChange(id)} />
           {isEdit ? (
             <input
               className="content"
