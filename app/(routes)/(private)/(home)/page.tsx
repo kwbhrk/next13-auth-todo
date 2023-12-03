@@ -1,14 +1,14 @@
 import { headers } from 'next/headers';
 import { TaskLists } from './TaskLists';
+import { Text } from '@/app/_components/ui/Text/Text';
 
 export const Home = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/task`, {
     headers: headers(),
   });
 
-  // TODO: 500エラーの場合はエラーページへ遷移させる
   if (!response.ok) {
-    return <div>エラーが発生しました。</div>;
+    return <Text fontSize="16px">エラーが発生しました。</Text>;
   }
 
   const { tasks } = await response.json();
