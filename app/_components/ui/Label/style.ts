@@ -1,8 +1,9 @@
 import { css } from '@/styled-system/css';
 
-export const labelClass = css({
-  width: '100%',
-});
+export const labelClass = (fullWidth: boolean) =>
+  css({
+    width: fullWidth ? '100%' : 'auto',
+  });
 
 export const labelTextClass = (fontSize: string) =>
   css({
