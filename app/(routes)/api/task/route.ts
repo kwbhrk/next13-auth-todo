@@ -130,6 +130,40 @@ export async function PUT(req: Request) {
   }
 }
 
-// export async function DELETE(req: Request, res: NextResponse) {
-//   // TODO: 認証状態をチェック後、通過したもののみ処理継続(カスタムフックスに置き換える)
-// }
+export async function DELETE(req: Request) {
+  if (req.method !== 'DELETE') {
+    return NextResponse.json({ message: '許可されていないメソッドです。' }, { status: 405 });
+  }
+
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return NextResponse.json(
+      { message: '未ログインの状態です。再度ログイン後、お試しください。' },
+      { status: 401 }
+    );
+  }
+
+  try {
+    const { ids } = await req.json();
+    // idに一致したタスクを削除
+    await prisma.task.deleteMany({
+      where: {
+        id: {
+          // inで配列を渡すと、配列の要素に一致するものを全て削除する
+          in: ids,
+        },
+      },
+    });
+
+    return NextResponse.json({ message: 'タスクを削除しました。' }, { status: 200 });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
+    // const validationMessage = err?.errors?.[0]?.message;
+    return NextResponse.json(
+      {
+        message: err?.message,
+      },
+      { status: 500 }
+    );
+  }
+}
