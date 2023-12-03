@@ -54,8 +54,8 @@ export const LoginForm = () => {
   return (
     <FormCard onSubmit={handleSubmitLogin}>
       <h2 className={css({ fontWeight: 'bold' })}>ログイン</h2>
-      <LayoutBox direction="column" gap="16px">
-        <LayoutBox direction="column" gap="8px">
+      <LayoutBox direction="column" gap="12px">
+        <LayoutBox direction="column" gap="4px">
           <Label htmlFor="email" text="メールアドレス" fullWidth>
             <Input
               id="email"
