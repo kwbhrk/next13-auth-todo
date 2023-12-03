@@ -56,7 +56,7 @@ export const LoginForm = () => {
       <h2 className={css({ fontWeight: 'bold' })}>ログイン</h2>
       <LayoutBox direction="column" gap="16px">
         <LayoutBox direction="column" gap="8px">
-          <Label htmlFor="email" text="メールアドレス">
+          <Label htmlFor="email" text="メールアドレス" fullWidth>
             <Input
               id="email"
               type="email"
@@ -66,7 +66,7 @@ export const LoginForm = () => {
             />
           </Label>
           <ErrorText message={errors.email?.message} />
-          <Label htmlFor="password" text="パスワード">
+          <Label htmlFor="password" text="パスワード" fullWidth>
             <Input
               id="password"
               type="password"

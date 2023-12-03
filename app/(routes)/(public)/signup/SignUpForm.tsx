@@ -58,11 +58,11 @@ export const SignUpForm = () => {
       <h2 className={css({ fontWeight: 'bold' })}>新規登録</h2>
       <LayoutBox direction="column" gap="16px">
         <LayoutBox direction="column" gap="8px">
-          <Label htmlFor="name" text="名前" required>
+          <Label htmlFor="name" text="名前" fullWidth required>
             <Input id="name" type="name" placeholder="名前を入力" fullWidth {...register('name')} />
           </Label>
           <Error name="name" errors={errors} />
-          <Label htmlFor="email" text="メールアドレス" required>
+          <Label htmlFor="email" text="メールアドレス" fullWidth required>
             <Input
               id="email"
               type="email"
@@ -72,7 +72,7 @@ export const SignUpForm = () => {
             />
           </Label>
           <Error name="email" errors={errors} />
-          <Label htmlFor="password" text="パスワード" required>
+          <Label htmlFor="password" text="パスワード" fullWidth required>
             <Input
               id="password"
               type="password"
