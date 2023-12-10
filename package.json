@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write --log-level=warn 'app/**/*.{js,jsx,ts,tsx,json}'"
+    "format": "prettier --write --log-level=warn 'app/**/*.{js,jsx,ts,tsx,json}'",
+    "sb": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
@@ -25,6 +27,14 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^0.15.5",
+    "@storybook/addon-essentials": "^7.6.4",
+    "@storybook/addon-interactions": "^7.6.4",
+    "@storybook/addon-links": "^7.6.4",
+    "@storybook/addon-onboarding": "^1.0.9",
+    "@storybook/blocks": "^7.6.4",
+    "@storybook/nextjs": "^7.6.4",
+    "@storybook/react": "^7.6.4",
+    "@storybook/test": "^7.6.4",
     "@types/bcrypt": "^5.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -33,10 +43,12 @@
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-storybook": "^0.6.15",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
     "prettier": "^3.0.3",
     "prisma": "^5.4.2",
+    "storybook": "^7.6.4",
     "typescript": "^5"
   }
 }
