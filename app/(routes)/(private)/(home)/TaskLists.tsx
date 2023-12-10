@@ -5,7 +5,7 @@ import { LayoutBox } from '@/app/_components/ui/LayoutBox';
 import { Button } from '@/app/_components/ui/Button';
 import { Modal } from '@/app/_components/ui/Modal';
 import { Input } from '@/app/_components/ui/Input';
-import { Text } from '@/app/_components/ui/Text/Text';
+import { Text } from '@/app/_components/ui/Text';
 import { TaskListWrapperClass } from './style';
 import { TaskType } from './type';
 import { zodResolver } from '@hookform/resolvers/zod';
