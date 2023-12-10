@@ -1,6 +1,6 @@
 import { headers } from 'next/headers';
 import { TaskLists } from './TaskLists';
-import { Text } from '@/app/_components/ui/Text/Text';
+import { Text } from '@/app/_components/ui/Text';
 
 export const Home = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/task`, {
