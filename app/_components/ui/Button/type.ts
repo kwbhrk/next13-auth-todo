@@ -6,7 +6,8 @@ export type ButtonProps = {
   border?: string;
   bold?: boolean;
   width?: string;
-  isLink?: boolean;
   href?: string;
+  isLink?: boolean;
+  externalLink?: boolean;
   children?: React.ReactNode;
 } & React.JSX.IntrinsicElements['button'];
