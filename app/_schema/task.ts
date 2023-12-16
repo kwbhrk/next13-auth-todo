@@ -1,6 +1,7 @@
 import * as z from 'zod';
 
 export const taskSchema = z.object({
+  id: z.number(),
   content: z
     .string()
     .max(100, { message: '100文字以内で入力してください。' })
