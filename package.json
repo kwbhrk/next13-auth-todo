@@ -10,7 +10,7 @@
     "lint": "next lint",
     "format": "prettier --write --log-level=warn 'app/**/*.{js,jsx,ts,tsx,json}'",
     "sb": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "sbb": "storybook build"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
