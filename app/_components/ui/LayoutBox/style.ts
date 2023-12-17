@@ -8,7 +8,7 @@ export const LayoutBoxClass = ({
   rowGap = '2x',
   align = 'start',
   justify = 'center',
-  wrap = 'nowrap',
+  wrap = 'wrap',
   background = '#ffffff',
 }: LayoutBoxProps) =>
   css({
